@@ -11,19 +11,19 @@ document.getElementById("saveContact").addEventListener("click", function () {
     "TEL;TYPE=CELL:07074633263",
     "TEL;TYPE=WORK:0486445444",
     "EMAIL:satotin0512@icloud.com",
-    "ADR;TYPE=WORK:;;仲町1-50-50 福田産業ビル2F;さいたま市大宮区;埼玉県;330-0845;日本",
+    "ADR;TYPE=WORK:;;仲町1-50 福田産業ビル2F;さいたま市大宮区;埼玉県;;日本",
     "URL:https://www.instagram.com/satotin0516/",
     "END:VCARD"
   ].join("\r\n");
 
   const blob = new Blob(
-    ["\uFEFF", vcard],
+    [vcard],
     { type: "text/vcard;charset=utf-8" }
   );
 
   const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
 
+  const a = document.createElement("a");
   a.href = url;
   a.download = "峰村悟.vcf";
 
@@ -33,5 +33,5 @@ document.getElementById("saveContact").addEventListener("click", function () {
 
   setTimeout(function () {
     URL.revokeObjectURL(url);
-  }, 1000);
+  }, 60000);
 });
